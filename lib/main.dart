@@ -73,7 +73,15 @@ class InputField extends StatefulWidget {
 class _InputFieldState extends State<InputField> {
   var index = 0;
   var index2 = 0;
-  var units = ["Km", "M", "Cm", "Mm", "In", "Ft", "Ya"];
+  var units = [
+    "KiloMeter",
+    "Meter",
+    "CentiMeter",
+    "MiliMeter",
+    "Inch",
+    "Feet",
+    "Yard"
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -88,10 +96,10 @@ class _InputFieldState extends State<InputField> {
             children: [
               Container(
                   height: double.infinity,
-                  width: MediaQuery.sizeOf(context).width * 0.7,
-                  color: Colors.green,
+                  width: MediaQuery.sizeOf(context).width * 0.6,
+                  color: Colors.transparent,
                   child: const Center(
-                    child: TextField(),
+                    child: Text("hello"),
                   )),
               Expanded(
                 child: Container(
@@ -190,8 +198,8 @@ class _InputFieldState extends State<InputField> {
             children: [
               Container(
                   height: double.infinity,
-                  width: MediaQuery.sizeOf(context).width * 0.7,
-                  color: Colors.green,
+                  width: MediaQuery.sizeOf(context).width * 0.6,
+                  color: Colors.transparent,
                   child: const Center(
                     child: TextField(),
                   )),
