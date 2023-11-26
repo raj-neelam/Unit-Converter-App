@@ -61,17 +61,108 @@ class Body extends StatelessWidget {
   }
 }
 
-class InputField extends StatelessWidget {
+class InputField extends StatefulWidget {
   const InputField({
     super.key,
   });
+
+  @override
+  State<InputField> createState() => _InputFieldState();
+}
+
+class _InputFieldState extends State<InputField> {
+  var index = 0;
+  var index2 = 0;
+  var units = ["Km", "M", "Cm", "Mm", "In", "Ft", "Ya"];
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         SizedBox(height: MediaQuery.sizeOf(context).height * 0.05),
-        const FirstConv(),
+        Container(
+          width: double.infinity,
+          height: MediaQuery.sizeOf(context).height * 0.2,
+          color: Colors.transparent,
+          child: Row(
+            children: [
+              Container(
+                  height: double.infinity,
+                  width: MediaQuery.sizeOf(context).width * 0.7,
+                  color: Colors.green,
+                  child: const Center(
+                    child: TextField(),
+                  )),
+              Expanded(
+                child: Container(
+                    height: double.infinity,
+                    width: double.infinity,
+                    child: Column(
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {
+                            print("first up");
+                            setState(() {
+                              if (index < units.length - 1) {
+                                index += 1;
+                              } else {
+                                index = 0;
+                              }
+                            });
+                          },
+                          style: ElevatedButton.styleFrom(
+                            elevation: 0,
+                            backgroundColor: Colors.transparent,
+                            foregroundColor: Colors.transparent,
+                          ),
+                          child: const Icon(
+                            Icons.arrow_drop_up,
+                            color: Colors.white,
+                            size: 60,
+                          ),
+                        ),
+                        Expanded(
+                            child: Container(
+                          width: 300,
+                          height: 300,
+                          child: Center(
+                            child: Text(
+                              units[index],
+                              style: TextStyle(
+                                color: Colors.grey[500],
+                                fontSize: 30,
+                              ),
+                            ),
+                          ),
+                        )),
+                        ElevatedButton(
+                          onPressed: () {
+                            print("first down");
+                            setState(() {
+                              if (index > 0) {
+                                index -= 1;
+                              } else {
+                                index = units.length - 1;
+                              }
+                            });
+                          },
+                          style: ElevatedButton.styleFrom(
+                            elevation: 0,
+                            backgroundColor: Colors.transparent,
+                            foregroundColor: Colors.transparent,
+                          ),
+                          child: const Icon(
+                            Icons.arrow_drop_down,
+                            color: Colors.white,
+                            size: 60,
+                          ),
+                        ),
+                      ],
+                    )),
+              ),
+            ],
+          ),
+        ),
         SizedBox(
           height: MediaQuery.sizeOf(context).height * 0.05,
           width: double.infinity,
@@ -91,91 +182,90 @@ class InputField extends StatelessWidget {
             ],
           ),
         ),
-        const SecondConv(),
+        Container(
+          width: double.infinity,
+          height: MediaQuery.sizeOf(context).height * 0.2,
+          color: Colors.transparent,
+          child: Row(
+            children: [
+              Container(
+                  height: double.infinity,
+                  width: MediaQuery.sizeOf(context).width * 0.7,
+                  color: Colors.green,
+                  child: const Center(
+                    child: TextField(),
+                  )),
+              Expanded(
+                child: Container(
+                    height: double.infinity,
+                    width: double.infinity,
+                    child: Column(
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {
+                            print("first up");
+                            setState(() {
+                              if (index2 < units.length - 1) {
+                                index2 += 1;
+                              } else {
+                                index2 = 0;
+                              }
+                            });
+                          },
+                          style: ElevatedButton.styleFrom(
+                            elevation: 0,
+                            backgroundColor: Colors.transparent,
+                            foregroundColor: Colors.transparent,
+                          ),
+                          child: const Icon(
+                            Icons.arrow_drop_up,
+                            color: Colors.white,
+                            size: 60,
+                          ),
+                        ),
+                        Expanded(
+                            child: Container(
+                          width: 300,
+                          height: 300,
+                          child: Center(
+                            child: Text(
+                              units[index2],
+                              style: TextStyle(
+                                color: Colors.grey[500],
+                                fontSize: 30,
+                              ),
+                            ),
+                          ),
+                        )),
+                        ElevatedButton(
+                          onPressed: () {
+                            print("first down");
+                            setState(() {
+                              if (index2 > 0) {
+                                index2 -= 1;
+                              } else {
+                                index2 = units.length - 1;
+                              }
+                            });
+                          },
+                          style: ElevatedButton.styleFrom(
+                            elevation: 0,
+                            backgroundColor: Colors.transparent,
+                            foregroundColor: Colors.transparent,
+                          ),
+                          child: const Icon(
+                            Icons.arrow_drop_down,
+                            color: Colors.white,
+                            size: 60,
+                          ),
+                        ),
+                      ],
+                    )),
+              ),
+            ],
+          ),
+        ),
       ],
-    );
-  }
-}
-
-class FirstConv extends StatelessWidget {
-  const FirstConv({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: MediaQuery.sizeOf(context).height * 0.2,
-      color: Colors.transparent,
-      child: Row(
-        children: [
-          Container(
-              height: double.infinity,
-              width: MediaQuery.sizeOf(context).width * 0.7,
-              color: Colors.green,
-              child: const Center(
-                child: TextField(),
-              )),
-          Expanded(
-            child: Container(
-                height: double.infinity,
-                width: double.infinity,
-                color: Colors.red,
-                child: Column(
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        print("first up");
-                      },
-                      style: ElevatedButton.styleFrom(
-                        elevation: 0,
-                        backgroundColor: Colors.transparent,
-                        foregroundColor: Colors.transparent,
-                        
-                      ),
-                      child: const Icon(
-                        Icons.arrow_drop_up,
-                        color: Colors.white,
-                        size: 60,
-                      ),
-                    )
-                  ],
-                )),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class SecondConv extends StatelessWidget {
-  const SecondConv({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: MediaQuery.sizeOf(context).height * 0.2,
-      color: Colors.transparent,
-      child: Row(
-        children: [
-          Container(
-            height: double.infinity,
-            width: MediaQuery.sizeOf(context).width * 0.7,
-            color: Colors.green,
-          ),
-          Expanded(
-            child: Container(
-              height: double.infinity,
-              width: double.infinity,
-              color: Colors.red,
-            ),
-          ),
-        ],
-      ),
     );
   }
 }
