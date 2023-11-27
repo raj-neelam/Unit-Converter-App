@@ -11,6 +11,12 @@ class LengthField extends StatefulWidget {
 }
 
 class _LengthFieldState extends State<LengthField> {
+  late TextEditingController _controller1;
+  late TextEditingController _controller2;
+
+  var _fontSize = 60.0;
+  var _fontSize2 = 60.0;
+
   var index = 0;
   var index2 = 0;
   var units = [
@@ -24,14 +30,16 @@ class _LengthFieldState extends State<LengthField> {
   ];
   var unitToMili = [1000, 1, 0.01, 0.001, 0.0254, 0.3048, 0.914];
 
-  TextEditingController _controller1 = TextEditingController();
-  TextEditingController _controller2 = TextEditingController();
+  // TextEditingController _controller1 = TextEditingController();
+  // TextEditingController _controller2 = TextEditingController();
 
   @override
   void initState() {
     super.initState();
     _controller1 = TextEditingController(text: "0.00");
     _controller2 = TextEditingController(text: "0.00");
+    // _controller1.addListener(_onTextChanged);
+    // _controller2.addListener(_onTextChanged);
   }
 
   @override
@@ -67,11 +75,13 @@ class _LengthFieldState extends State<LengthField> {
                         var miliVal = unitToMili[index] * val;
                         var unitVal = (1 / unitToMili[index2]) * miliVal;
                         setValueOfInp(_controller2, unitVal);
+                        _onTextChanged1();
+                        _onTextChanged2();
                       },
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Colors.white,
-                        fontSize: 60,
+                        fontSize: _fontSize,
                       ),
                       keyboardType:
                           const TextInputType.numberWithOptions(decimal: true),
@@ -107,6 +117,8 @@ class _LengthFieldState extends State<LengthField> {
                               }
                               checkUpdate(_controller1, _controller2, index,
                                   index2, unitToMili);
+                              _onTextChanged1();
+                              _onTextChanged2();
                             });
                           },
                           style: ElevatedButton.styleFrom(
@@ -145,6 +157,8 @@ class _LengthFieldState extends State<LengthField> {
                               }
                               checkUpdate(_controller1, _controller2, index,
                                   index2, unitToMili);
+                              _onTextChanged1();
+                              _onTextChanged2();
                             });
                           },
                           style: ElevatedButton.styleFrom(
@@ -207,11 +221,13 @@ class _LengthFieldState extends State<LengthField> {
                           var miliVal = unitToMili[index2] * val;
                           var unitVal = (1 / unitToMili[index]) * miliVal;
                           setValueOfInp(_controller1, unitVal);
+                          _onTextChanged1();
+                          _onTextChanged2();
                         },
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: Colors.white,
-                          fontSize: 60,
+                          fontSize: _fontSize2,
                         ),
                         keyboardType: const TextInputType.numberWithOptions(
                             decimal: true),
@@ -244,6 +260,8 @@ class _LengthFieldState extends State<LengthField> {
                               }
                               checkUpdate(_controller2, _controller1, index2,
                                   index, unitToMili);
+                              _onTextChanged1();
+                              _onTextChanged2();
                             });
                           },
                           style: ElevatedButton.styleFrom(
@@ -282,6 +300,8 @@ class _LengthFieldState extends State<LengthField> {
                               }
                               checkUpdate(_controller2, _controller1, index2,
                                   index, unitToMili);
+                              _onTextChanged1();
+                              _onTextChanged2();
                             });
                           },
                           style: ElevatedButton.styleFrom(
@@ -303,6 +323,44 @@ class _LengthFieldState extends State<LengthField> {
         ),
       ],
     );
+  }
+
+  void _onTextChanged1() {
+    setState(() {
+      // Adjust font size based on the length of the text
+      if (_controller1.text.length > 18) {
+        _fontSize = 15.0; // Decrease font size for longer text
+      } else if (_controller1.text.length > 15) {
+        _fontSize = 20.0;
+      } else if (_controller1.text.length > 11) {
+        _fontSize = 25.0; // Decrease font size for longer text
+      } else if (_controller1.text.length > 8) {
+        _fontSize = 35.0;
+      } else if (_controller1.text.length > 4) {
+        _fontSize = 50.0;
+      } else {
+        _fontSize = 60.0; // Default font size
+      }
+    });
+  }
+
+  void _onTextChanged2() {
+    setState(() {
+      // Adjust font size based on the length of the text
+      if (_controller2.text.length > 18) {
+        _fontSize2 = 15.0; // Decrease font size for longer text
+      } else if (_controller2.text.length > 15) {
+        _fontSize2 = 20.0;
+      } else if (_controller2.text.length > 11) {
+        _fontSize2 = 25.0; // Decrease font size for longer text
+      } else if (_controller2.text.length > 8) {
+        _fontSize2 = 35.0;
+      } else if (_controller2.text.length > 4) {
+        _fontSize2 = 50.0;
+      } else {
+        _fontSize2 = 60.0; // Default font size
+      }
+    });
   }
 }
 
