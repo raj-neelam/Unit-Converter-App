@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:unitconv/Length_Field.dart';
+import 'package:unitconv/navigator_field.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,10 +30,10 @@ class AppWidget extends StatelessWidget {
           centerTitle: true,
           title: const Text("UnitConv",
               style: TextStyle(color: Colors.white, fontSize: 40)),
-          backgroundColor: Colors.grey[600],
+          backgroundColor: Colors.blueGrey[700],
           leading: const Icon(Icons.format_underline_outlined, size: 40),
         ),
-        backgroundColor: Colors.grey[900],
+        backgroundColor: Colors.blueGrey[900],
         body: const Body(),
       ),
     );
@@ -50,230 +52,16 @@ class Body extends StatelessWidget {
         height: MediaQuery.sizeOf(context).height * 0.5,
         width: double.infinity,
         color: Colors.transparent,
-        child: const InputField(),
+        child: const LengthField(),
       ),
       Expanded(
         child: Container(
-          color: Colors.transparent,
+          color: Colors.blueGrey[800],
+          child:const NavigationField(),
         ),
       ),
     ]);
   }
 }
 
-class InputField extends StatefulWidget {
-  const InputField({
-    super.key,
-  });
 
-  @override
-  State<InputField> createState() => _InputFieldState();
-}
-
-class _InputFieldState extends State<InputField> {
-  var index = 0;
-  var index2 = 0;
-  var units = [
-    "KiloMeter",
-    "Meter",
-    "CentiMeter",
-    "MiliMeter",
-    "Inch",
-    "Feet",
-    "Yard"
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(height: MediaQuery.sizeOf(context).height * 0.05),
-        Container(
-          width: double.infinity,
-          height: MediaQuery.sizeOf(context).height * 0.2,
-          color: Colors.transparent,
-          child: Row(
-            children: [
-              Container(
-                  height: double.infinity,
-                  width: MediaQuery.sizeOf(context).width * 0.6,
-                  color: Colors.transparent,
-                  child: const Center(
-                    child: Text("hello"),
-                  )),
-              Expanded(
-                child: Container(
-                    height: double.infinity,
-                    width: double.infinity,
-                    child: Column(
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            print("first up");
-                            setState(() {
-                              if (index < units.length - 1) {
-                                index += 1;
-                              } else {
-                                index = 0;
-                              }
-                            });
-                          },
-                          style: ElevatedButton.styleFrom(
-                            elevation: 0,
-                            backgroundColor: Colors.transparent,
-                            foregroundColor: Colors.transparent,
-                          ),
-                          child: const Icon(
-                            Icons.arrow_drop_up,
-                            color: Colors.white,
-                            size: 60,
-                          ),
-                        ),
-                        Expanded(
-                            child: Container(
-                          width: 300,
-                          height: 300,
-                          child: Center(
-                            child: Text(
-                              units[index],
-                              style: TextStyle(
-                                color: Colors.grey[500],
-                                fontSize: 30,
-                              ),
-                            ),
-                          ),
-                        )),
-                        ElevatedButton(
-                          onPressed: () {
-                            print("first down");
-                            setState(() {
-                              if (index > 0) {
-                                index -= 1;
-                              } else {
-                                index = units.length - 1;
-                              }
-                            });
-                          },
-                          style: ElevatedButton.styleFrom(
-                            elevation: 0,
-                            backgroundColor: Colors.transparent,
-                            foregroundColor: Colors.transparent,
-                          ),
-                          child: const Icon(
-                            Icons.arrow_drop_down,
-                            color: Colors.white,
-                            size: 60,
-                          ),
-                        ),
-                      ],
-                    )),
-              ),
-            ],
-          ),
-        ),
-        SizedBox(
-          height: MediaQuery.sizeOf(context).height * 0.05,
-          width: double.infinity,
-          child: const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.arrow_upward,
-                color: Colors.white,
-                size: 40,
-              ),
-              Icon(
-                Icons.arrow_downward,
-                color: Colors.white,
-                size: 40,
-              ),
-            ],
-          ),
-        ),
-        Container(
-          width: double.infinity,
-          height: MediaQuery.sizeOf(context).height * 0.2,
-          color: Colors.transparent,
-          child: Row(
-            children: [
-              Container(
-                  height: double.infinity,
-                  width: MediaQuery.sizeOf(context).width * 0.6,
-                  color: Colors.transparent,
-                  child: const Center(
-                    child: TextField(),
-                  )),
-              Expanded(
-                child: Container(
-                    height: double.infinity,
-                    width: double.infinity,
-                    child: Column(
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            print("first up");
-                            setState(() {
-                              if (index2 < units.length - 1) {
-                                index2 += 1;
-                              } else {
-                                index2 = 0;
-                              }
-                            });
-                          },
-                          style: ElevatedButton.styleFrom(
-                            elevation: 0,
-                            backgroundColor: Colors.transparent,
-                            foregroundColor: Colors.transparent,
-                          ),
-                          child: const Icon(
-                            Icons.arrow_drop_up,
-                            color: Colors.white,
-                            size: 60,
-                          ),
-                        ),
-                        Expanded(
-                            child: Container(
-                          width: 300,
-                          height: 300,
-                          child: Center(
-                            child: Text(
-                              units[index2],
-                              style: TextStyle(
-                                color: Colors.grey[500],
-                                fontSize: 30,
-                              ),
-                            ),
-                          ),
-                        )),
-                        ElevatedButton(
-                          onPressed: () {
-                            print("first down");
-                            setState(() {
-                              if (index2 > 0) {
-                                index2 -= 1;
-                              } else {
-                                index2 = units.length - 1;
-                              }
-                            });
-                          },
-                          style: ElevatedButton.styleFrom(
-                            elevation: 0,
-                            backgroundColor: Colors.transparent,
-                            foregroundColor: Colors.transparent,
-                          ),
-                          child: const Icon(
-                            Icons.arrow_drop_down,
-                            color: Colors.white,
-                            size: 60,
-                          ),
-                        ),
-                      ],
-                    )),
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-}
