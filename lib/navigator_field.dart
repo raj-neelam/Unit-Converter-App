@@ -21,7 +21,7 @@ class NavigationField extends StatelessWidget {
               height: MediaQuery.sizeOf(context).height * 0.18,
               color: Colors.transparent,
               child: Padding(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
@@ -53,7 +53,7 @@ class NavigationField extends StatelessWidget {
               height: MediaQuery.sizeOf(context).height * 0.18,
               color: Colors.transparent,
               child: Padding(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
@@ -90,7 +90,7 @@ class NavigationField extends StatelessWidget {
               height: MediaQuery.sizeOf(context).height * 0.18,
               color: Colors.transparent,
               child: Padding(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
@@ -122,7 +122,7 @@ class NavigationField extends StatelessWidget {
               height: MediaQuery.sizeOf(context).height * 0.18,
               color: Colors.transparent,
               child: Padding(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
@@ -159,7 +159,7 @@ class NavigationField extends StatelessWidget {
               height: MediaQuery.sizeOf(context).height * 0.18,
               color: Colors.transparent,
               child: Padding(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
@@ -191,7 +191,7 @@ class NavigationField extends StatelessWidget {
               height: MediaQuery.sizeOf(context).height * 0.18,
               color: Colors.transparent,
               child: Padding(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(

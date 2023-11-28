@@ -99,7 +99,7 @@ class _LengthFieldState extends State<LengthField> {
 
               // arrow press region
               Expanded(
-                child: Container(
+                child: SizedBox(
                     height: double.infinity,
                     width: double.infinity,
                     child: Column(
@@ -131,7 +131,7 @@ class _LengthFieldState extends State<LengthField> {
                           ),
                         ),
                         Expanded(
-                            child: Container(
+                            child: SizedBox(
                           width: 300,
                           height: 300,
                           child: Center(
@@ -242,7 +242,7 @@ class _LengthFieldState extends State<LengthField> {
                     ),
                   )),
               Expanded(
-                child: Container(
+                child: SizedBox(
                     height: double.infinity,
                     width: double.infinity,
                     child: Column(
@@ -274,7 +274,7 @@ class _LengthFieldState extends State<LengthField> {
                           ),
                         ),
                         Expanded(
-                            child: Container(
+                            child: SizedBox(
                           width: 300,
                           height: 300,
                           child: Center(
