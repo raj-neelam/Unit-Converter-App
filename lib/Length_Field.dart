@@ -38,8 +38,6 @@ class _LengthFieldState extends State<LengthField> {
     super.initState();
     _controller1 = TextEditingController(text: "0.00");
     _controller2 = TextEditingController(text: "0.00");
-    // _controller1.addListener(_onTextChanged);
-    // _controller2.addListener(_onTextChanged);
   }
 
   @override

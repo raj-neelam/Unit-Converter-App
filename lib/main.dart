@@ -57,7 +57,7 @@ class Body extends StatelessWidget {
       Expanded(
         child: Container(
           color: Colors.blueGrey[900],
-          child: const NavigationField(),
+          child: NavigationField(),
         ),
       ),
     ]);

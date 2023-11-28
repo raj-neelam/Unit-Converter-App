@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class NavigationField extends StatelessWidget {
-  const NavigationField({
+  NavigationField({
     super.key,
   });
+  double text_size = 11;
 
   @override
   Widget build(BuildContext context) {
@@ -16,23 +18,31 @@ class NavigationField extends StatelessWidget {
           children: [
             Container(
               width: MediaQuery.sizeOf(context).width * 0.3333,
-              height: MediaQuery.sizeOf(context).height * 0.21,
+              height: MediaQuery.sizeOf(context).height * 0.18,
               color: Colors.transparent,
               child: Padding(
                 padding: EdgeInsets.all(20),
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
+                    elevation: 10,
+                    backgroundColor: Colors.blueGrey[800],
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(
                           20), // Adjust the radius as needed
                     ),
                   ),
-                  child: const Column(
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(Icons.linear_scale_rounded),
-                      Text("Length")
+                      const Icon(
+                        Icons.linear_scale_rounded,
+                        color: Colors.white,
+                        size: 40,
+                      ),
+                      Text("Length",
+                          style: TextStyle(
+                              color: Colors.white, fontSize: text_size))
                     ],
                   ),
                 ),
@@ -40,70 +50,31 @@ class NavigationField extends StatelessWidget {
             ),
             Container(
               width: MediaQuery.sizeOf(context).width * 0.3333,
-              height: MediaQuery.sizeOf(context).height * 0.21,
+              height: MediaQuery.sizeOf(context).height * 0.18,
               color: Colors.transparent,
               child: Padding(
                 padding: EdgeInsets.all(20),
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
+                    elevation: 10,
+                    backgroundColor: Colors.blueGrey[800],
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(
                           20), // Adjust the radius as needed
                     ),
                   ),
-                  child: const Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [Icon(Icons.linear_scale_rounded), Text("Mass")],
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: MediaQuery.sizeOf(context).width * 0.3333,
-              height: MediaQuery.sizeOf(context).height * 0.21,
-              color: Colors.transparent,
-              child: Padding(
-                padding: EdgeInsets.all(20),
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(
-                          20), // Adjust the radius as needed
-                    ),
-                  ),
-                  child: const Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [Icon(Icons.linear_scale_rounded), Text("Time")],
-                  ),
-                ),
-              ),
-            ),
-            Container(
-              width: MediaQuery.sizeOf(context).width * 0.3333,
-              height: MediaQuery.sizeOf(context).height * 0.21,
-              color: Colors.transparent,
-              child: Padding(
-                padding: EdgeInsets.all(20),
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(
-                          20), // Adjust the radius as needed
-                    ),
-                  ),
-                  child: const Column(
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(Icons.linear_scale_rounded),
-                      Text("Volume")
+                      const Icon(
+                        Icons.boy_outlined,
+                        color: Colors.white,
+                        size: 40,
+                      ),
+                      Text("Mass",
+                          style: TextStyle(
+                              color: Colors.white, fontSize: text_size)),
                     ],
                   ),
                 ),
@@ -116,23 +87,31 @@ class NavigationField extends StatelessWidget {
           children: [
             Container(
               width: MediaQuery.sizeOf(context).width * 0.3333,
-              height: MediaQuery.sizeOf(context).height * 0.21,
+              height: MediaQuery.sizeOf(context).height * 0.18,
               color: Colors.transparent,
               child: Padding(
-                padding: const EdgeInsets.all(20),
+                padding: EdgeInsets.all(20),
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
+                    elevation: 10,
+                    backgroundColor: Colors.blueGrey[800],
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(
                           20), // Adjust the radius as needed
                     ),
                   ),
-                  child: const Column(
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(Icons.linear_scale_rounded),
-                      Text("Curncy")
+                      const Icon(
+                        Icons.watch_later_outlined,
+                        color: Colors.white,
+                        size: 40,
+                      ),
+                      Text("Time",
+                          style: TextStyle(
+                              color: Colors.white, fontSize: text_size)),
                     ],
                   ),
                 ),
@@ -140,21 +119,101 @@ class NavigationField extends StatelessWidget {
             ),
             Container(
               width: MediaQuery.sizeOf(context).width * 0.3333,
-              height: MediaQuery.sizeOf(context).height * 0.21,
+              height: MediaQuery.sizeOf(context).height * 0.18,
               color: Colors.transparent,
               child: Padding(
                 padding: EdgeInsets.all(20),
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
+                    elevation: 10,
+                    backgroundColor: Colors.blueGrey[800],
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(
                           20), // Adjust the radius as needed
                     ),
                   ),
-                  child: const Column(
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [Icon(Icons.linear_scale_rounded), Text("Temp")],
+                    children: [
+                      const Icon(
+                        Icons.water_drop_outlined,
+                        color: Colors.white,
+                        size: 40,
+                      ),
+                      Text("Volume",
+                          style: TextStyle(
+                              color: Colors.white, fontSize: text_size)),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: MediaQuery.sizeOf(context).width * 0.3333,
+              height: MediaQuery.sizeOf(context).height * 0.18,
+              color: Colors.transparent,
+              child: Padding(
+                padding: EdgeInsets.all(20),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    elevation: 10,
+                    backgroundColor: Colors.blueGrey[800],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(
+                          20), // Adjust the radius as needed
+                    ),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(
+                        Icons.attach_money_sharp,
+                        color: Colors.white,
+                        size: 40,
+                      ),
+                      Text("Curncy",
+                          style: TextStyle(
+                              color: Colors.white, fontSize: text_size)),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              width: MediaQuery.sizeOf(context).width * 0.3333,
+              height: MediaQuery.sizeOf(context).height * 0.18,
+              color: Colors.transparent,
+              child: Padding(
+                padding: EdgeInsets.all(20),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    elevation: 10,
+                    backgroundColor: Colors.blueGrey[800],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(
+                          20), // Adjust the radius as needed
+                    ),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(
+                        Icons.thermostat_sharp,
+                        color: Colors.white,
+                        size: 40,
+                      ),
+                      Text("Temp",
+                          style: TextStyle(
+                              color: Colors.white, fontSize: text_size)),
+                    ],
                   ),
                 ),
               ),
