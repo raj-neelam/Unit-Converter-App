@@ -34,16 +34,27 @@ class AppWidget extends StatelessWidget {
           leading: const Icon(Icons.format_underline_outlined, size: 40),
         ),
         backgroundColor: Colors.blueGrey[900],
-        body: const Body(),
+        body: Body(),
       ),
     );
   }
 }
 
 class Body extends StatelessWidget {
-  const Body({
+  Body({
     super.key,
   });
+
+  var Length_units = [
+    "KiloMeter",
+    "Meter",
+    "CentiMeter",
+    "MiliMeter",
+    "Inch",
+    "Feet",
+    "Yard"
+  ];
+  var Length_unitToMili = [1000, 1, 0.01, 0.001, 0.0254, 0.3048, 0.914];
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +63,11 @@ class Body extends StatelessWidget {
         height: MediaQuery.sizeOf(context).height * 0.5,
         width: double.infinity,
         color: Colors.transparent,
-        child: const LengthField(),
+        child: LengthField(
+          title: "Length Converter",
+          units: Length_units,
+          unitsToMili: Length_unitToMili,
+        ),
       ),
       Expanded(
         child: Container(

@@ -2,15 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class LengthField extends StatefulWidget {
-  const LengthField({
+  var title;
+  var units;
+  var unitsToMili;
+  LengthField({
     super.key,
+    this.title,
+    this.units,
+    this.unitsToMili,
   });
 
   @override
-  State<LengthField> createState() => _LengthFieldState();
+  // ignore: no_logic_in_create_state
+  State<LengthField> createState() => _LengthFieldState(
+        name: title,
+        units: units,
+        unitToMili: unitsToMili,
+      );
 }
 
 class _LengthFieldState extends State<LengthField> {
+  var name;
+  var units;
+  var unitToMili;
+  _LengthFieldState({
+    this.name,
+    this.units,
+    this.unitToMili,
+  });
+
   late TextEditingController _controller1;
   late TextEditingController _controller2;
 
@@ -19,16 +39,6 @@ class _LengthFieldState extends State<LengthField> {
 
   var index = 0;
   var index2 = 0;
-  var units = [
-    "KiloMeter",
-    "Meter",
-    "CentiMeter",
-    "MiliMeter",
-    "Inch",
-    "Feet",
-    "Yard"
-  ];
-  var unitToMili = [1000, 1, 0.01, 0.001, 0.0254, 0.3048, 0.914];
 
   // TextEditingController _controller1 = TextEditingController();
   // TextEditingController _controller2 = TextEditingController();
@@ -46,8 +56,8 @@ class _LengthFieldState extends State<LengthField> {
       children: [
         SizedBox(
             height: MediaQuery.sizeOf(context).height * 0.05,
-            child: const Center(
-              child: Text("Length Converter",
+            child: Center(
+              child: Text(name,
                   style: TextStyle(color: Colors.white, fontSize: 30)),
             )),
 
@@ -146,7 +156,7 @@ class _LengthFieldState extends State<LengthField> {
                         )),
                         ElevatedButton(
                           onPressed: () {
-                            print("first down");
+                            print(name);
                             setState(() {
                               if (index > 0) {
                                 index -= 1;
