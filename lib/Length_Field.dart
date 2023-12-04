@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:unitconv/main.dart';
 
 class LengthField extends StatefulWidget {
   var title;
@@ -366,31 +367,8 @@ class _LengthFieldState extends State<LengthField> {
       } else if (_controller2.text.length > 4) {
         _fontSize2 = 50.0;
       } else {
-        _fontSize2 = 60.0; // Default font size
+        _fontSize2 = 60.0; // Deault font size
       }
     });
   }
-}
-
-void setValueOfInp(controller, val) {
-  val = val.toString();
-  var ind = val.length - 1;
-  while (true) {
-    if (val[val.length - 1] != "0") {
-      break;
-    } else {
-      val = val.substring(0, ind);
-      ind -= 1;
-    }
-  }
-  val = val + "0";
-  controller.text = val.toString();
-}
-
-void checkUpdate(controlerA, controlerB, indexA, indexB, unitToMili) {
-  double? val = double.tryParse(controlerA.text);
-  val ??= 0;
-  var miliVal = unitToMili[indexA] * val;
-  var unitVal = (1 / unitToMili[indexB]) * miliVal;
-  setValueOfInp(controlerB, unitVal.toStringAsFixed(4));
 }
