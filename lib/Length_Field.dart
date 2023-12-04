@@ -46,8 +46,8 @@ class _LengthFieldState extends State<LengthField> {
   @override
   void initState() {
     super.initState();
-    _controller1 = TextEditingController(text: "0.00");
-    _controller2 = TextEditingController(text: "0.00");
+    _controller1 = TextEditingController(text: "0.0");
+    _controller2 = TextEditingController(text: "0.0");
   }
 
   @override
@@ -123,8 +123,8 @@ class _LengthFieldState extends State<LengthField> {
                               } else {
                                 index = 0;
                               }
-                              checkUpdate(_controller1, _controller2, index,
-                                  index2, unitToMili);
+                              checkUpdate(_controller2, _controller1, index2,
+                                  index, unitToMili);
                               _onTextChanged1();
                               _onTextChanged2();
                             });
@@ -163,8 +163,8 @@ class _LengthFieldState extends State<LengthField> {
                               } else {
                                 index = units.length - 1;
                               }
-                              checkUpdate(_controller1, _controller2, index,
-                                  index2, unitToMili);
+                              checkUpdate(_controller2, _controller1, index2,
+                                  index, unitToMili);
                               _onTextChanged1();
                               _onTextChanged2();
                             });
@@ -266,8 +266,8 @@ class _LengthFieldState extends State<LengthField> {
                               } else {
                                 index2 = 0;
                               }
-                              checkUpdate(_controller2, _controller1, index2,
-                                  index, unitToMili);
+                              checkUpdate(_controller1, _controller2, index,
+                                  index2, unitToMili);
                               _onTextChanged1();
                               _onTextChanged2();
                             });
@@ -306,8 +306,8 @@ class _LengthFieldState extends State<LengthField> {
                               } else {
                                 index2 = units.length - 1;
                               }
-                              checkUpdate(_controller2, _controller1, index2,
-                                  index, unitToMili);
+                              checkUpdate(_controller1, _controller2, index,
+                                  index2, unitToMili);
                               _onTextChanged1();
                               _onTextChanged2();
                             });
@@ -373,18 +373,24 @@ class _LengthFieldState extends State<LengthField> {
 }
 
 void setValueOfInp(controller, val) {
+  val = val.toString();
+  var ind = val.length - 1;
+  while (true) {
+    if (val[val.length - 1] != "0") {
+      break;
+    } else {
+      val = val.substring(0, ind);
+      ind -= 1;
+    }
+  }
+  val = val + "0";
   controller.text = val.toString();
 }
 
-double getValueOfInp(controller) {
-  double? val = double.tryParse(controller.text);
-  val ??= 0;
-  return val;
-}
-
 void checkUpdate(controlerA, controlerB, indexA, indexB, unitToMili) {
-  var val = getValueOfInp(controlerA);
+  double? val = double.tryParse(controlerA.text);
+  val ??= 0;
   var miliVal = unitToMili[indexA] * val;
   var unitVal = (1 / unitToMili[indexB]) * miliVal;
-  setValueOfInp(controlerB, unitVal);
+  setValueOfInp(controlerB, unitVal.toStringAsFixed(4));
 }
